@@ -9,17 +9,19 @@ import { Link } from 'react-router-dom';
 const Shop = () => {
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState([]);
+    const [search, setSearch] = useState('');
+    document.title = "Shop More"
 
     useEffect(()=>{
-        fetch('http://localhost:5000/products')
+        fetch('https://floating-waters-67988.herokuapp.com/products?search='+search)
         .then(res => res.json())
         .then(data => setProducts(data))
-    }, [])
+    }, [search])
     
     useEffect(()=>{
         const savedCart = getDatabaseCart();
         const productKeys = Object.keys(savedCart);
-        fetch('http://localhost:5000/productsByKeys', {
+        fetch('https://floating-waters-67988.herokuapp.com/productsByKeys', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -29,6 +31,10 @@ const Shop = () => {
         .then(res => res.json())
         .then(data => setCart(data))
     }, [])
+
+    const handleSearch = event =>{
+        setSearch(event.target.value);
+    }
 
     const handleAddProduct = (product) =>{
         const toBeAddedKey = product.key;
@@ -52,6 +58,7 @@ const Shop = () => {
     return (
         <div className="twin-container">
             <div className="product-container">
+                <input type="text" onBlur={handleSearch} placeholder="search product"/>
                 {
                     products.map(pd => <Product 
                         key={pd.key}

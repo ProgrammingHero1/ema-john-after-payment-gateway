@@ -1,10 +1,10 @@
 const firebaseConfig = {
-    apiKey: "AIzaSyDrnTlaFOThHGej0ZkIglLffFZZioNSPiI",
-    authDomain: "ema-test-jkr.firebaseapp.com",
-    databaseURL: "https://ema-test-jkr.firebaseio.com",
-    projectId: "ema-test-jkr",
-    storageBucket: "ema-test-jkr.appspot.com",
-    messagingSenderId: "273630571694",
-    appId: "1:273630571694:web:dd5435e9e8b7deb372913f"
-  };
+  apiKey: "AIzaSyBHhOX8rtp2vahVcATkhTD_7CwARw6arrk",
+  authDomain: "fire-auth2.firebaseapp.com",
+  databaseURL: "https://fire-auth2.firebaseio.com",
+  projectId: "fire-auth2",
+  storageBucket: "fire-auth2.appspot.com",
+  messagingSenderId: "587131087182",
+  appId: "1:587131087182:web:f7e53e9007fe7760d7561f"
+};
 export default firebaseConfig;
